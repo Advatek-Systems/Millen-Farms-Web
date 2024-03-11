@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Model.Freezer>
+
+@{
+    ViewBag.Title = "Manage Freezers";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "SetupModule", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Manage Freezers</h2>
+        <br />
+        <p>
+            @Html.ActionLink("Create New Freezer", "CreateFreezer", null, new { @class = "btn btn-primary" })
+        </p>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped table-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FreezerName)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FreezerName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFreezer", new { freezerID = item.FreezerID }, new { @class = "btn btn-warning" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h2>There are no results!</h2>
+        }
+    </div>
+</div>

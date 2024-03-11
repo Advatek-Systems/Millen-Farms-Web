@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Model.Production>
+
+@{
+    ViewBag.Title = "Production by Dates";
+}
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @if ((string)ViewBag.FreshOrFrozen == "Fresh")
+        {
+            @Html.ActionLink("Back", "SearchFreshProductionByDates", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        }
+        else if ((string)ViewBag.FreshOrFrozen == "Frozen")
+        {
+            @Html.ActionLink("Back", "SearchFrozenProductionByDates", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        }
+        <h2>Production by Dates</h2>
+        <br />
+        @if (Model.Count() > 0)
+        {
+            <div style="height:60vh; overflow-y:scroll;">
+                <table class="table table-striped table-light">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LotNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SerialNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullSkidNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BoxName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BoxWeightLB)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InsDateTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StateCodeName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerName)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LotNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SerialNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullSkidNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BoxName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BoxWeightLB)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InsDateTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StateCodeName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "ProductionDetails", new { serialNumber = item.SerialNo })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>There are no results!</h2>
+        }
+    </div>
+</div>

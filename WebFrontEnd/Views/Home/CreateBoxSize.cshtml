@@ -1,0 +1,55 @@
+﻿@model Model.BoxSize
+
+@{
+    ViewBag.Title = "Create Box Size";
+}
+<script type="text/javascript">
+    function lbsConverter(valNum) {
+        document.getElementById("outputGrams").value = valNum / 2.2046;
+    }
+    function kgConverter(valNum) {
+        document.getElementById("outputPounds").value = valNum * 2.2046;
+    }
+</script>
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "ManageBoxSizes", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Create Box Size</h2>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BoxName, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.BoxName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BoxWeightLB, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.BoxWeightLB, new { htmlAttributes = new { @class = "form-control", id= "outputPounds", oninput = "lbsConverter(this.value)", onchange = "lbsConverter(this.value)" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BoxWeightKG, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.BoxWeightKG, new { htmlAttributes = new { @class = "form-control", id = "outputGrams", oninput = "kgConverter(this.value)", onchange = "kgConverter(this.value)" } })
+                    </div>
+                </div>
+                <br />
+                <p class="text-danger">@ViewBag.Msg</p>
+                <div class="form-group">
+                    <div class="col">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

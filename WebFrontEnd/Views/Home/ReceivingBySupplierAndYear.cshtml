@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Receiving by Supplier and Year";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "ManageReceiving", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Receiving by Supplier and Year</h2>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    Supplier:
+                    <div class="col">
+                        @Html.DropDownList("supplierID", new SelectList(ViewBag.Suppliers, "SupplierID", "Name"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    Year:
+                    <div class="col">
+                        @Html.DropDownList("selectedYear", new SelectList(ViewBag.Years), new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <p class="text-danger">@ViewBag.Msg</p>
+                <div class="form-group">
+                    <div class="col">
+                        <input type="submit" value="Search" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+<div class="card border-dark">
+    <div class="card-body text-center">
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-person-dolly fa-3x"></i>
+                    @Html.ActionLink("Go", "ManageReceiving", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Receiving Data</h5>
+                </div>
+            </div>
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-blueberries fa-3x"></i>
+                    @Html.ActionLink("Go", "ManageProduction", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Production</h5>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-magnifying-glass-location fa-3x"></i>
+                    @Html.ActionLink("Go", "LotLookup", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Lot Lookup</h5>
+                </div>
+            </div>
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-boxes-stacked fa-3x"></i>
+                    @Html.ActionLink("Go", "Inventory", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Inventory</h5>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-gears fa-3x"></i>
+                    @Html.ActionLink("Go", "SetupModule", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Setup Module</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

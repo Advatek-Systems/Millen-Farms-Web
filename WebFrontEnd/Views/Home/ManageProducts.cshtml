@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Model.Product>
+
+@{
+    ViewBag.Title = "Manage Products";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "SetupModule", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Manage Products</h2>
+        <br />
+        <p>
+            @Html.ActionLink("Create New Product", "CreateProduct", null, new { @class = "btn btn-primary" })
+        </p>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped table-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EnglishTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FrenchTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CertLine1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CertLine2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductCode)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EnglishTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FrenchTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CertLine1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CertLine2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductCode)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditProduct", new { productID = item.ProductID }, new { @class = "btn btn-warning" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h2>There are no results!</h2>
+        }
+    </div>
+</div>

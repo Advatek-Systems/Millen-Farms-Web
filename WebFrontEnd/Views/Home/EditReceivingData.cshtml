@@ -1,0 +1,95 @@
+﻿@model Model.ReceivingScale
+
+@{
+    ViewBag.Title = "Edit Receiving Data";
+}
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "ManageReceiving", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Edit Receiving Data</h2>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(Model => Model.PalletNo)
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DeviceID, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.DeviceID, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LotNo, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.LotNo, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PalletNo, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.PalletNo, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SupplierID, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.DropDownList("SupplierID", new SelectList(ViewBag.Suppliers, "SupplierID", "Name"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductID, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.DropDownList("ProductID", new SelectList(ViewBag.Products, "ProductID", "EnglishTitle"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Gross, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.Gross, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Tare, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.Tare, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Net, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.Net, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BlueTotesOrSmallBins, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.DropDownList("BlueTotesOrSmallBins", new SelectList(ViewBag.TotesOrBins, "ID", "Name"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuantityTotesBins, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.QuantityTotesBins, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <p class="text-danger">@ViewBag.Msg</p>
+                <div class="form-group">
+                    <div class="col">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,188 @@
+﻿@using Model;
+
+@{
+    ViewBag.Title = "Lot Lookup";
+}
+
+<div class="card border-dark text-center">
+    <div class="card-body">
+        @Html.ActionLink("Back", "LotLookup", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        @if (ViewBag.Receiving.Count != 0)
+        {
+            <h2>Receiving Information</h2>
+            <br />
+            <div>
+                <table class="table table-light table-striped">
+                    <tr>
+                        <th>
+                            Device ID
+                        </th>
+                        <th>
+                            Lot Number
+                        </th>
+                        <th>
+                            Pallet Number
+                        </th>
+                        <th>
+                            Supplier Name
+                        </th>
+                        <th>
+                            Product Name
+                        </th>
+                        <th>
+                            Gross Weight
+                        </th>
+                        <th>
+                            Tare Weight
+                        </th>
+                        <th>
+                            Net Weight
+                        </th>
+                        <th>
+                            Totes Or Bins
+                        </th>
+                        <th>
+                            Quantity Totes/Bins
+                        </th>
+                        <th>
+                            Date/Time
+                        </th>
+                        <th>
+                            State Code Name
+                        </th>
+                    </tr>
+
+                    @foreach (var item in (List<ReceivingScale>)ViewBag.Receiving)
+                    {
+                        <tr>
+                            <td>
+                                @item.DeviceID
+                            </td>
+                            <td>
+                                @item.LotNo
+                            </td>
+                            <td>
+                                @item.PalletNo
+                            </td>
+                            <td>
+                                @item.SupplierName
+                            </td>
+                            <td>
+                                @item.ProductName
+                            </td>
+                            <td>
+                                @item.Gross
+                            </td>
+                            <td>
+                                @item.Tare
+                            </td>
+                            <td>
+                                @item.Net
+                            </td>
+                            <td>
+                                @item.BlueTotesOrSmallBins
+                            </td>
+                            <td>
+                                @item.QuantityTotesBins
+                            </td>
+                            <td>
+                                @item.RecDateTime
+                            </td>
+                            <td>
+                                @item.StateCodeName
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Totals:</td>
+                        <th>@ViewBag.Gross</th>
+                        <th>@ViewBag.Tare</th>
+                        <th>@ViewBag.Net</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>There is no receiving information.</h2>
+        }
+        <br /><br />
+        @if (ViewBag.Production.Count != 0)
+        {
+            <h2>Production Information</h2>
+            <br />
+            <div>
+                <table class="table table-dark table-striped">
+                    <tr>
+                        <th>
+                            Device ID
+                        </th>
+                        <th>
+                            Lot Number
+                        </th>
+                        <th>
+                            Serial Number
+                        </th>
+                        <th>
+                            Full Skid Number
+                        </th>
+                        <th>
+                            Date/Time
+                        </th>
+                        <th>
+                            State Code Name
+                        </th>
+                        <th>
+                            Customer Name
+                        </th>
+                        <th>
+                            Trailer Number
+                        </th>
+                    </tr>
+
+                    @foreach (var item in (List<Production>)ViewBag.Production)
+                    {
+                        <tr>
+                            <td>
+                                @item.DeviceID
+                            </td>
+                            <td>
+                                @item.LotNo
+                            </td>
+                            <td>
+                                @item.SerialNo
+                            </td>
+                            <td>
+                                @item.FullSkidNo
+                            </td>
+                            <td>
+                                @item.RecDateTime.ToShortDateString()
+                            </td>
+                            <td>
+                                @item.StateCodeName
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.TrailerNo
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>There is no production information.</h2>
+        }
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Manage Production";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Production</h2>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-blueberries fa-3x"></i>
+                    @Html.ActionLink("Go", "FreshProduction", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Fresh Production</h5>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-refrigerator fa-3x"></i>
+                    @Html.ActionLink("Go", "FrozenProduction", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Frozen Production</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

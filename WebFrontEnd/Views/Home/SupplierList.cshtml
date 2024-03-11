@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Model.Supplier>
+
+@{
+    ViewBag.Title = "Manage Suppliers";
+}
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "SetupModule", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Manage Suppliers</h2>
+        <br />
+        <p>
+            @Html.ActionLink("Create New Supplier", "AddSupplier", null, new { @class = "btn btn-primary" })
+        </p>
+        <p>
+            @Html.ActionLink("Load Suppliers to Scale", "LoadSuppliers", null, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-striped table-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplierID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditSupplier", new { id = item.SupplierID }, new { @class = "btn btn-warning" })
+
+                        @if (item.Enabled == true)
+                        {
+                            @Html.ActionLink("Disable", "EnableDisableSupplier", new { supplierID = item.SupplierID, value = false }, new { @class = "btn btn-danger" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Enable", "EnableDisableSupplier", new { supplierID = item.SupplierID, value = true }, new { @class = "btn btn-success" })
+                        }
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

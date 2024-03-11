@@ -1,0 +1,60 @@
+﻿@model Model.Product
+
+@{
+    ViewBag.Title = "Create Product";
+}
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "ManageProducts", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Create Product</h2>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnglishTitle, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.EnglishTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FrenchTitle, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.FrenchTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CertLine1, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.CertLine1, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CertLine2, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.CertLine2, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductCode, htmlAttributes: new { @class = "control-label col" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <br />
+                <p class="text-danger">@ViewBag.Msg</p>
+                <div class="form-group">
+                    <div class="col">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

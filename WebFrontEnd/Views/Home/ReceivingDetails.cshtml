@@ -1,0 +1,172 @@
+﻿@model Model.ReceivingScale
+
+@{
+    ViewBag.Title = "Receiving Data Details";
+}
+<div class="card border-dark">
+    <div class="card-body">
+        @if (ViewBag.RecLoc == "Search")
+        {
+            @Html.ActionLink("Back", "ManageReceiving", new { searchString = ViewBag.SearchStr }, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        }
+        else if (ViewBag.RecLoc == "Dates")
+        {
+            @Html.ActionLink("Back", "ReceivingByDate", new { start = ViewBag.Start, end = ViewBag.End }, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        }
+        else
+        {
+            @Html.ActionLink("Back", "ManageReceiving", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        }
+        <h2 class="text-center">Receiving Data Details</h2>
+        <br />
+        <p class="text-center">@Html.ActionLink("Edit", "EditReceivingData", new { palletNumber = Model.PalletNo }, new { @class = "btn btn-warning" }) &emsp;
+        @Html.ActionLink("Delete", "DeleteReceivingData", new { palletNumber = Model.PalletNo }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure you want to delete this information? Please note that although it can be undone, the process to restore it requires contacting our support team. We apologize for any inconvenience this may cause.');" })</p>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeviceID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeviceID)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.LotNo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LotNo)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.PalletNo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PalletNo)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.SupplierID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SupplierID)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.SupplierName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SupplierName)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductID)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gross)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Gross)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tare)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tare)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Net)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Net)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.BlueTotesOrSmallBins)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BlueTotesOrSmallBins)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.QuantityTotesBins)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.QuantityTotesBins)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.RecDateTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RecDateTime)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.InsDateTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.InsDateTime)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.PalletWeight)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PalletWeight)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.StateCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StateCode)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.StateCodeName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StateCodeName)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

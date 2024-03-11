@@ -1,0 +1,75 @@
+﻿@using Model
+
+@{
+    ViewBag.Title = "Outgoing";
+}
+<div class="card border-dark">
+    <div class="card-body">
+        @Html.ActionLink("Back", "Inventory", new { searchString = ViewBag.SearchStr }, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2 class="text-center">Outgoing</h2>
+        <br />
+        <h2>Receiving Outgoing</h2>
+        @if ((int)ViewBag.ReceivingCount > 0)
+        {
+            <div style="max-height:40vh; overflow-y:scroll;">
+                <table class="table-light table table-striped">
+                    <tr>
+                        <th>Lot Number</th>
+                        <th>Pallet Number</th>
+                        <th>Trailer Number</th>
+                        <th>Product Name</th>
+                        <th>Blue Totes or Small Bins</th>
+                        <th>Quantity Totes/Bins</th>
+                        <th>State Code Name</th>
+                        <th>Date</th>
+                    </tr>
+                    @foreach (ReceivingScale item in (List<ReceivingScale>)ViewBag.Receiving)
+                    {
+                        <tr>
+                            <td>@item.LotNo</td>
+                            <td>@item.PalletNo</td>
+                            <td>@item.TrailerNo</td>
+                            <td>@item.BlueTotesOrSmallBins</td>
+                            <td>@item.QuantityTotesBins</td>
+                            <td>@item.StateCodeName</td>
+                            <td>@item.DisplayDate</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h3 class="text-center">There are no results!</h3>
+        }
+        <br />
+        <h2>Production Outgoing</h2>
+        @if ((int)ViewBag.ProductionCount > 0)
+        {
+            <div style="max-height:40vh; overflow-y:scroll;">
+                <table class="table-light table table-striped">
+                    <tr>
+                        <th>Pallet Number</th>
+                        <th>Customer Name</th>
+                        <th>Trailer Number</th>
+                        <th>Date</th>
+                    </tr>
+                    @foreach (Production item in (List<Production>)ViewBag.Production)
+                    {
+                        <tr>
+                            <td>@item.FullSkidNo</td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.TrailerNo</td>
+                            <td>@item.DisplayDate</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h3 class="text-center">There are no results!</h3>
+        }
+        <br />
+    </div>
+</div>

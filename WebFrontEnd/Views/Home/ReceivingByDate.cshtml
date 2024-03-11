@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Model.ReceivingScale>
+
+@{
+    ViewBag.Title = "Receiving Scale Data by Dates";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Receiving Scale Data by Dates</h2>
+        <br />
+        @if (Model.Count() > 0)
+        {
+            <div style="height:60vh; overflow-y:scroll;">
+                <table class="table table-striped table-light">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LotNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PalletNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BlueTotesOrSmallBins)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.QuantityTotesBins)
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LotNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PalletNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BlueTotesOrSmallBins)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuantityTotesBins)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "ReceivingDetails", new { palletNumber = item.PalletNo }, new { @class = "btn btn-warning" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>There are no results!</h2>
+        }
+    </div>
+</div>

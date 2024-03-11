@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Model.BoxSize>
+
+@{
+    ViewBag.Title = "Manage Box Sizes";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "SetupModule", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Manage Box Sizes</h2>
+        <br />
+        <p>
+            @Html.ActionLink("Create New Box Size", "CreateBoxSize", null, new { @class = "btn btn-primary" })
+        </p>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped table-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BoxName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BoxWeightLB)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BoxWeightKG)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BoxName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BoxWeightLB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BoxWeightKG)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditBoxSize", new { boxSizeID = item.BoxSizeID }, new { @class = "btn btn-warning" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h2>There are no results!</h2>
+        }
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "Receiving Report";
+}
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "ManageReceiving", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Receiving Report</h2>
+        <br />
+        @if ((int)ViewBag.Count > 0)
+        {
+            <div class="text-center">
+                @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, new { @style = "height:60vh;width:100%;background-color:white;" })
+            </div>
+        }
+        else
+        {
+            <div class="card border-dark">
+                <div class="card-body text-center">
+                    <h3>There are no results.</h3>
+                </div>
+            </div>
+        }
+    </div>
+</div>

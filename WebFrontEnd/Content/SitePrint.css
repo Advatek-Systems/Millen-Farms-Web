@@ -1,0 +1,5 @@
+﻿.btn, button, btn, a, input, footer, header, header, br {
+    display: none !important;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); /* future-proof */
+}

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Search Fresh Production By Dates";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "FreshProduction", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Search Fresh Production by Dates</h2>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    Start Date:
+                    <div class="col">
+                        @Html.TextBox("start", null, new { @class = "form-control", @type = "date" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    End Date:
+                    <div class="col">
+                        @Html.TextBox("end", null, new { @class = "form-control", @type = "date" })
+                    </div>
+                </div>
+                <br />
+                <p class="text-danger">@ViewBag.Msg</p>
+                <div class="form-group">
+                    <div class="col">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

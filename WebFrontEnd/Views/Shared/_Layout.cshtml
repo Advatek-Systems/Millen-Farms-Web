@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Advatek Systems</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="https://kit.fontawesome.com/94bbd66ab0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @Html.ActionLink("Millen Farms", "Index", "Home", new { area = "" }, new { @class = "navbar-brand nav-link active" })
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("ManageReceiving", "Home")" class="nav-link"><i class="fa-solid fa-person-dolly" style="color: #ffffff;"></i> Receiving Data</a>
+                    </li>
+                    &nbsp;
+                    <li class="nav-item">
+                        <a href="@Url.Action("FreshProduction", "Home")" class="nav-link"><i class="fa-solid fa-blueberries" style="color: #ffffff;"></i> Production</a>
+                    </li>
+                    &nbsp;
+                    <li class="nav-item">
+                        <a href="@Url.Action("LotLookup", "Home")" class="nav-link"><i class="fa-solid fa-magnifying-glass-location" style="color: #ffffff;"></i> Lot Lookup</a>
+                    </li>
+                    &nbsp;
+                    <li class="nav-item">
+                        <a href="@Url.Action("Inventory", "Home")" class="nav-link"><i class="fa-solid fa-boxes-stacked" style="color: #ffffff;"></i> Inventory</a>
+                    </li>
+                    &nbsp;
+                    <li class="nav-item">
+                        <a href="@Url.Action("SetupModule", "Home")" class="nav-link"><i class="fa-solid fa-gears" style="color: #ffffff;"></i> Setup</a>
+                    </li>
+                    &nbsp;
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end">
+                <a href="@Url.Action("Index", "Login")" class="btn btn-danger border-dark pull-right text-right justify-content-end" style="float:right;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>
+                        Logout
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        <br />
+        @RenderBody()
+        <a href="https://advateksupport.azurewebsites.net/" style="background-color: #44A6FF; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer; border-radius: 16px; position: fixed; bottom: 25px; right: 25px; " target="_blank"><i class="fa-regular fa-2x fa-comments-question-check" style="color: #ffffff;"></i><span style="font-size:2em;">&nbsp;Help</span></a>
+        <hr />
+        <footer style="text-align:center;">
+            <p>&copy; @DateTime.Now.Year - Advatek Systems | Dieppe</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Lot Lookup";
+}
+@using (Html.BeginForm())
+{
+    <div class="card border-dark text-center">
+        <div class="card-body">
+            @Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+            <h2>Lot Lookup</h2>
+            @Html.TextBox("lotNo", null, new { @class = "form-control", placeholder = "Enter Lot Number" })
+            <br />
+            <p class="text-danger">@ViewBag.Msg</p>
+            <input type="submit" value="Search by Lot Number" class="btn btn-dark">
+        </div>
+    </div>
+}

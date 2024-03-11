@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Setup Module";
+}
+
+<div class="card border-dark">
+    <div class="card-body text-center">
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-danger mb-3", @style = "display:block;" })
+        <h2>Setup</h2>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-people-simple fa-3x"></i>
+                    @Html.ActionLink("Go", "CustomerList", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Customers</h5>
+                </div>
+            </div>
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-truck-field fa-3x"></i>
+                    @Html.ActionLink("Go", "SupplierList", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Suppliers</h5>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-refrigerator fa-3x"></i>
+                    @Html.ActionLink("Go", "ManageFreezers", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Freezers</h5>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card-group">
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-boxes-stacked fa-3x"></i>
+                    @Html.ActionLink("Go", "ManageBoxSizes", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Box Sizes</h5>
+                </div>
+            </div>
+            <div class="card border-dark text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-strawberry fa-3x"></i>
+                    @Html.ActionLink("Go", "ManageProducts", null, new { @class = "stretched-link", @style = "background: transparent;border: none !important;font-size:0;" })
+                    <h5 class="card-title">Products</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
